@@ -37,6 +37,13 @@
      - 확대/축소 : Scale
      - 회전 : Rotate
      - 투명도 : Alpha
+
+  ○ 인터폴레이터
+     - accelerate_interpolator : 점점 빠르게 나타나도록 만듬
+     - decelerate_interpolator : 점점 느리게 나타나도록 만듬
+     - accelerate_decelerate_interpolator  : 점점 빠르다가 느리게 나타나도록 만듬
+     - anticipate_interpolator : 시작 위치에서 조금 뒤로 당겼다가 시작하도록 만듬
+     - overshoot_interpolator : 애니메이션 효과를 종료 위치에서 조금 지나쳤다가 종료되도록 만듬
 =====================================================================*/
 package com.eun1310434.tweenanimation;
 
@@ -96,6 +103,15 @@ public class MainActivity extends AppCompatActivity {
         translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate);
+                v.startAnimation(anim);//해당 view 객체에 적용
+            }
+        });
+
+        //multi
+        Button multiButton = (Button) findViewById(R.id.multiButton);
+        multiButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.multi);
                 v.startAnimation(anim);//해당 view 객체에 적용
             }
         });
